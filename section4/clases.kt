@@ -1,6 +1,6 @@
 /*Clases */
 
-class Frutas(){
+open class Frutas(){
 
     var color:String = ""
     var sabor:String = ""
@@ -45,13 +45,27 @@ class Frutas(){
 
 }
 
+class FrutasConGrasa():Frutas(){
+    var cantidadGrasa:Int = 0
+
+    constructor(grasa:Int):this(){
+        this.cantidadGrasa = grasa
+    }
+}
+
 fun main(args: Array<String>) {
     var manzanaConHojas = Frutas("Rojo", "Dulce", 4, 100, 2)
-    var manzanaSinHojas = Frutas("Rojo", "Dulce", 4)
+    var manzanaSinHojas = Frutas("Rojo", "Dulce", 4, 0, 0)
+    var aguacate = FrutasConGrasa(10)
+
+    aguacate.color = "verde"
 
     println(manzanaConHojas.color)
     println(manzanaSinHojas.numHojas)
+    println(aguacate.cantidadGrasa)
+    println(aguacate.color)
 
-    manzana.pudrirse()
-    manzana.estado()
+    manzanaConHojas.pudrirse()
+    manzanaSinHojas.estado()
+    aguacate.pudrirse()
 }
