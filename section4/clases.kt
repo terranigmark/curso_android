@@ -1,21 +1,41 @@
 /*Clases */
 
-class Frutas(color:String, sabor:String, precio:Int, frescura:Int){
+class Frutas(){
 
     var color:String = ""
     var sabor:String = ""
     var precio:Int = 0
     var frescura:Int = 100
+    var numHojas:Int = 0
 
-    init{
+    /*init{
         this.color = color
         this.sabor = sabor
         this.precio = precio
         this.frescura = frescura
+    }*/
+
+    constructor(color:String, sabor:String, precio:Int, frescura:Int):this(){
+
+        this.color = color
+        this.sabor = sabor
+        this.precio = precio
+        this.frescura = frescura
+
+    }
+
+    constructor(color:String, sabor:String, precio:Int, frescura:Int, numHojas:Int):this(){
+
+        this.color = color
+        this.sabor = sabor
+        this.precio = precio
+        this.frescura = frescura
+        this.numHojas = numHojas
+
     }
 
     fun pudrirse(){
-        print("La fruta se esta pudriendo")
+        println("La fruta se esta pudriendo")
         frescura -= 20
     }
 
@@ -26,9 +46,11 @@ class Frutas(color:String, sabor:String, precio:Int, frescura:Int){
 }
 
 fun main(args: Array<String>) {
-    var manzana = Frutas("Rojo", "Dulce", 4, 100)
+    var manzanaConHojas = Frutas("Rojo", "Dulce", 4, 100, 2)
+    var manzanaSinHojas = Frutas("Rojo", "Dulce", 4)
 
-    print(manzana.color)
+    println(manzanaConHojas.color)
+    println(manzanaSinHojas.numHojas)
 
     manzana.pudrirse()
     manzana.estado()
